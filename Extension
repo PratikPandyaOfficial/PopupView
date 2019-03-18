@@ -1,0 +1,26 @@
+//MARK:- Popup
+func addPopup(view: UIView, viewController: UIViewController) {
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    view.frame = appDelegate.window?.frame ?? view.frame
+    view.alpha = 0
+    viewController.view.addSubview(view)
+    UIView.animate(withDuration: 0.2) {
+        view.alpha = 1
+    }
+}
+
+func removePopup(view: UIView) {
+    
+    UIView.animate(withDuration: 0.2, animations: {
+        view.alpha = 0
+    }) { (success) in
+        view.removeFromSuperview()
+    }
+}
+
+
+//Add popup view using -->  addPopup(view: self.popupName, viewController: self) 
+//Remove popup view using -->  removePopup(view: self.popupName)
+
+
+                    
